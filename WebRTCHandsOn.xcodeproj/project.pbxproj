@@ -13,6 +13,7 @@
 		7B99570924720E6B00103642 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B99570724720E6B00103642 /* Main.storyboard */; };
 		7B99570B24720E6C00103642 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B99570A24720E6C00103642 /* Assets.xcassets */; };
 		7B99570E24720E6C00103642 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B99570C24720E6C00103642 /* LaunchScreen.storyboard */; };
+		7BF178562472177D00401481 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF178552472177D00401481 /* ChatViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,10 @@
 		7B99570A24720E6C00103642 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7B99570D24720E6C00103642 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7B99570F24720E6C00103642 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7BF178552472177D00401481 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		7BF17859247218DA00401481 /* Starscream.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Starscream.framework; path = Carthage/Build/iOS/Starscream.framework; sourceTree = "<group>"; };
+		7BF1785D247218E500401481 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
+		7BF17860247218F000401481 /* WebRTC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebRTC.framework; path = Carthage/Build/iOS/WebRTC.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +47,7 @@
 			children = (
 				7B99570024720E6B00103642 /* WebRTCHandsOn */,
 				7B9956FF24720E6B00103642 /* Products */,
+				7BF17858247218DA00401481 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -63,8 +69,19 @@
 				7B99570A24720E6C00103642 /* Assets.xcassets */,
 				7B99570C24720E6C00103642 /* LaunchScreen.storyboard */,
 				7B99570F24720E6C00103642 /* Info.plist */,
+				7BF178552472177D00401481 /* ChatViewController.swift */,
 			);
 			path = WebRTCHandsOn;
+			sourceTree = "<group>";
+		};
+		7BF17858247218DA00401481 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7BF17860247218F000401481 /* WebRTC.framework */,
+				7BF1785D247218E500401481 /* SwiftyJSON.framework */,
+				7BF17859247218DA00401481 /* Starscream.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -77,6 +94,7 @@
 				7B9956FA24720E6B00103642 /* Sources */,
 				7B9956FB24720E6B00103642 /* Frameworks */,
 				7B9956FC24720E6B00103642 /* Resources */,
+				7BF178572472181700401481 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -133,6 +151,32 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		7BF178572472181700401481 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Starscream.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/WebRTC.framework",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Starscream.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SwiftyJSON.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/WebRTC.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\ncarthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		7B9956FA24720E6B00103642 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -140,6 +184,7 @@
 			files = (
 				7B99570624720E6B00103642 /* ViewController.swift in Sources */,
 				7B99570224720E6B00103642 /* AppDelegate.swift in Sources */,
+				7BF178562472177D00401481 /* ChatViewController.swift in Sources */,
 				7B99570424720E6B00103642 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -286,6 +331,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9SAVXK266C;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = WebRTCHandsOn/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -304,6 +354,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9SAVXK266C;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = WebRTCHandsOn/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

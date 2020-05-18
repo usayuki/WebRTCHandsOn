@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="i7q-Gd-rxh">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +10,102 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="WebRTCHandsOn" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ugC-PC-EsO">
+                                <rect key="frame" x="192" y="433" width="30" height="30"/>
+                                <state key="normal" title="Join"/>
+                                <connections>
+                                    <segue destination="4kO-Lv-0ja" kind="show" id="l2d-YD-V0o"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="ugC-PC-EsO" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="LUT-zw-Zdg"/>
+                            <constraint firstItem="ugC-PC-EsO" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="zUw-jS-fVK"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="eO6-kx-dSy"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="351" y="102"/>
+        </scene>
+        <!--Chat View Controller-->
+        <scene sceneID="14a-QC-m0A">
+            <objects>
+                <viewController id="4kO-Lv-0ja" customClass="ChatViewController" customModule="WebRTCHandsOn" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3nK-cF-hKD">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="203-XZ-JGf" customClass="RTCEAGLVideoView">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N12-h8-cTI" customClass="RTCCameraPreviewView">
+                                <rect key="frame" x="284" y="138" width="80" height="100"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="Ueo-qH-546"/>
+                                    <constraint firstAttribute="width" constant="80" id="vRR-s4-pWi"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CqI-0S-lpG">
+                                <rect key="frame" x="50" y="782" width="59" height="30"/>
+                                <state key="normal" title="Connect"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e80-3o-Bc1">
+                                <rect key="frame" x="307" y="782" width="57" height="30"/>
+                                <state key="normal" title="HangUp"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="203-XZ-JGf" firstAttribute="top" secondItem="2KG-c1-1B4" secondAttribute="top" id="29N-4o-HgK"/>
+                            <constraint firstItem="2KG-c1-1B4" firstAttribute="trailing" secondItem="e80-3o-Bc1" secondAttribute="trailing" constant="50" id="5kK-yh-W7N"/>
+                            <constraint firstItem="2KG-c1-1B4" firstAttribute="bottom" secondItem="203-XZ-JGf" secondAttribute="bottom" id="8VK-Kg-0QF"/>
+                            <constraint firstItem="203-XZ-JGf" firstAttribute="leading" secondItem="2KG-c1-1B4" secondAttribute="leading" id="Edx-Uc-RWa"/>
+                            <constraint firstItem="CqI-0S-lpG" firstAttribute="leading" secondItem="2KG-c1-1B4" secondAttribute="leading" constant="50" id="IPO-Gh-aVb"/>
+                            <constraint firstItem="e80-3o-Bc1" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="CqI-0S-lpG" secondAttribute="trailing" constant="8" symbolic="YES" id="ZyT-30-nVc"/>
+                            <constraint firstItem="2KG-c1-1B4" firstAttribute="bottom" secondItem="e80-3o-Bc1" secondAttribute="bottom" constant="50" id="as8-GT-S9V"/>
+                            <constraint firstItem="N12-h8-cTI" firstAttribute="top" secondItem="2KG-c1-1B4" secondAttribute="top" constant="50" id="hpV-6g-uPS"/>
+                            <constraint firstItem="2KG-c1-1B4" firstAttribute="trailing" secondItem="N12-h8-cTI" secondAttribute="trailing" constant="50" id="nPf-Bv-zvd"/>
+                            <constraint firstItem="2KG-c1-1B4" firstAttribute="trailing" secondItem="203-XZ-JGf" secondAttribute="trailing" id="tDY-iq-JC8"/>
+                            <constraint firstItem="2KG-c1-1B4" firstAttribute="bottom" secondItem="CqI-0S-lpG" secondAttribute="bottom" constant="50" id="ydz-BD-ENJ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="2KG-c1-1B4"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="sCP-8D-2Pi"/>
+                    <connections>
+                        <outlet property="cameraPreview" destination="N12-h8-cTI" id="qHD-OE-d3X"/>
+                        <outlet property="remoteVideoView" destination="203-XZ-JGf" id="9Mn-3g-dHw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="be2-bb-2wn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1064" y="102"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="BdK-OI-xBS">
+            <objects>
+                <navigationController id="i7q-Gd-rxh" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="W38-0M-Fj0">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="OAv-35-6w1"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nho-wO-kfk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-422" y="103"/>
         </scene>
     </scenes>
 </document>
