@@ -45,11 +45,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="203-XZ-JGf" customClass="RTCEAGLVideoView">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N12-h8-cTI" customClass="RTCCameraPreviewView">
-                                <rect key="frame" x="284" y="138" width="80" height="100"/>
+                                <rect key="frame" x="284" y="94" width="80" height="100"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="Ueo-qH-546"/>
@@ -59,14 +59,28 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CqI-0S-lpG">
                                 <rect key="frame" x="50" y="782" width="59" height="30"/>
                                 <state key="normal" title="Connect"/>
+                                <connections>
+                                    <action selector="connectButtonAction:" destination="4kO-Lv-0ja" eventType="touchUpInside" id="J6f-HD-9l6"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e80-3o-Bc1">
                                 <rect key="frame" x="307" y="782" width="57" height="30"/>
                                 <state key="normal" title="HangUp"/>
+                                <connections>
+                                    <action selector="hangupButtonAction:" destination="4kO-Lv-0ja" eventType="touchUpInside" id="1Wq-Wc-HGz"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="28b-WX-9Wr">
+                                <rect key="frame" x="50" y="94" width="39" height="30"/>
+                                <state key="normal" title="Close"/>
+                                <connections>
+                                    <action selector="closeButtonAction:" destination="4kO-Lv-0ja" eventType="touchUpInside" id="oC8-Sp-W9a"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="N12-h8-cTI" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="28b-WX-9Wr" secondAttribute="trailing" constant="8" symbolic="YES" id="1zW-RR-QTy"/>
                             <constraint firstItem="203-XZ-JGf" firstAttribute="top" secondItem="2KG-c1-1B4" secondAttribute="top" id="29N-4o-HgK"/>
                             <constraint firstItem="2KG-c1-1B4" firstAttribute="trailing" secondItem="e80-3o-Bc1" secondAttribute="trailing" constant="50" id="5kK-yh-W7N"/>
                             <constraint firstItem="2KG-c1-1B4" firstAttribute="bottom" secondItem="203-XZ-JGf" secondAttribute="bottom" id="8VK-Kg-0QF"/>
@@ -76,7 +90,9 @@
                             <constraint firstItem="2KG-c1-1B4" firstAttribute="bottom" secondItem="e80-3o-Bc1" secondAttribute="bottom" constant="50" id="as8-GT-S9V"/>
                             <constraint firstItem="N12-h8-cTI" firstAttribute="top" secondItem="2KG-c1-1B4" secondAttribute="top" constant="50" id="hpV-6g-uPS"/>
                             <constraint firstItem="2KG-c1-1B4" firstAttribute="trailing" secondItem="N12-h8-cTI" secondAttribute="trailing" constant="50" id="nPf-Bv-zvd"/>
+                            <constraint firstItem="28b-WX-9Wr" firstAttribute="leading" secondItem="2KG-c1-1B4" secondAttribute="leading" constant="50" id="qhq-Fp-g9U"/>
                             <constraint firstItem="2KG-c1-1B4" firstAttribute="trailing" secondItem="203-XZ-JGf" secondAttribute="trailing" id="tDY-iq-JC8"/>
+                            <constraint firstItem="28b-WX-9Wr" firstAttribute="top" secondItem="2KG-c1-1B4" secondAttribute="top" constant="50" id="yKw-KW-Xn2"/>
                             <constraint firstItem="2KG-c1-1B4" firstAttribute="bottom" secondItem="CqI-0S-lpG" secondAttribute="bottom" constant="50" id="ydz-BD-ENJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2KG-c1-1B4"/>
@@ -94,9 +110,8 @@
         <!--Navigation Controller-->
         <scene sceneID="BdK-OI-xBS">
             <objects>
-                <navigationController id="i7q-Gd-rxh" sceneMemberID="viewController">
+                <navigationController navigationBarHidden="YES" id="i7q-Gd-rxh" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="W38-0M-Fj0">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
